@@ -20,7 +20,7 @@ def evaluate_classical(model, X_test, y_test):
     print(f"ROC-AUC:   {roc_auc_score(y_test, y_proba):.4f}")
 
     cm = confusion_matrix(y_test, y_pred)
-    ConfusionMatrixDisplay(cm, display_labels=["No Dropout","Dropout"]).plot(cmap="PuRd")
+    ConfusionMatrixDisplay(cm, display_labels=["No Dropout","Dropout"]).plot(cmap="RdPu")
     plt.title("Confusion Matrix για Random Forest")
     plt.tight_layout()
     plt.savefig("models/confusion_matrix_rf.png")
@@ -122,7 +122,7 @@ def run_pca(X_train, y_train):
 
     plt.figure(figsize=(7, 5))
     scatter = plt.scatter(X_2d[:, 0], X_2d[:, 1],
-                         c=y_train, cmap="Purples", alpha=0.4, s=10)
+                         c=y_train, cmap="coolwarm", alpha=0.4, s=10)
     plt.colorbar(scatter, label="Dropout")
     plt.xlabel("PC1")
     plt.ylabel("PC2")
