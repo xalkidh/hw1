@@ -1,6 +1,7 @@
 from src.preprocessing import preprocess
 from src.train_classical import train_classical
 from src.train_neural import train_neural, DropoutNet
+from src.tune import tune_classical
 from src.evaluate import evaluate_classical, evaluate_neural, compare_models, run_pca
 import pickle
 import torch
@@ -13,6 +14,10 @@ def main():
     # Task 2 - Preprocessing
     print("\nTask 2: Preprocessing")
     X_train, X_val, X_test, y_train, y_val, y_test = preprocess()
+
+    # Task 2.7 - PCA
+    print("\nPCA Analysis")
+    run_pca(X_train, y_train)
 
     # Task 3.1 - Classical Models
     print("\nTask 3.1: Classical Models")
@@ -36,9 +41,9 @@ def main():
 
     compare_models(rf_metrics, nn_metrics)
 
-    # Task 2.7 - PCA
-    print("\nPCA Analysis")
-    run_pca(X_train, y_train)
+    # Task 6 - Hyperparameter Tuning
+    print("\nTask 6: Hyperparameter Tuning")
+    tune_classical(X_train, y_train, X_val, y_val)
 
     print("\nΤο Pipeline έχει ολοκληρωθεί.")
 
