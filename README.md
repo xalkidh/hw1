@@ -18,9 +18,9 @@ ID: 09325028
 
 ## 2. Περιγραφή Dataset
 
-- **Πηγή:** Kaggle — Student Dropout Prediction Dataset
+- **Πηγή:** Kaggle: Student Dropout Prediction Dataset
 - **Γραμμές:** 10,000
-- **Στήλες:** 19 (after removing Student_ID) + 2 engineered features = 21 features
+- **Στήλες:** 19 (μετά από αφαίρεση Student_ID) + 2 engineered features = 21 features
 
 | Feature | Τύπος | Περιγραφή |
 |---|---|---|
