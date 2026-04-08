@@ -70,7 +70,7 @@ def train_classical(X_train, y_train, X_val, y_val, feature_names):
     plt.subplot(1, 2, 1)
     rf_importances.head(10).plot(kind='barh', title='RF Top 10 Features', color='#F5277D')
     plt.subplot(1, 2, 2)
-    xgb_importances.head(10).plot(kind='barh', title='XGB Top 10 Features', color='#FF6EED')
+    xgb_importances.head(10).plot(kind='barh', title='XGB Top 10 Features', color='#FA9DDA')
     plt.tight_layout()
     plt.show()
 
