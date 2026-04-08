@@ -5,11 +5,24 @@ from src.tune import tune_classical
 from src.evaluate import evaluate_classical, evaluate_neural, compare_models, run_pca
 import pickle
 import torch
+import os
 
 def main():
     print("=" * 50)
     print("1st Assignment: Student Dropout Prediction")
     print("=" * 50)
+
+    # ΠΡΟΣΘΗΚΗ: ΕΛΕΓΧΟΙ ΑΣΦΑΛΕΙΑΣ
+    # 1. Έλεγχος για το Dataset (Είσοδος)
+    if not os.path.exists("data/dataset.csv"):
+        print("ΣΦΑΛΜΑ: Το αρχείο 'data/dataset.csv' λείπει.")
+        print("Σιγουρευτείτε ότι το dataset βρίσκεται μέσα στον φάκελο 'data'.")
+        return
+
+    # 2. Δημιουργία φακέλου Models αν λείπει (Έξοδος)
+    if not os.path.exists("models"):
+        os.makedirs("models")
+        print("Ο φάκελος 'models' δημιουργήθηκε.")
 
     # Task 2 - Preprocessing
     print("\nTask 2: Preprocessing")
