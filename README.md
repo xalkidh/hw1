@@ -1,10 +1,18 @@
 # hw1
 
+A.I. Hands On - 1st Assignment
+
+Αντικείμενο: Πρόβλεψη Student Dropout
+
+Όνομα: Αρχοντία Χαλκίδη
+
+ID: 09325028
+
 ## 1. Περιγραφή θέματος
 
 Ο στόχος μας είναι να καταφέρουμε να προβλέψουμε εάν ένας φοιτητής πανεπιστημίου θα κάνει drop out απο την σχολή του, βασιζόμενοι σε δημογραφικά, ακαδημαϊκά και προσωπικά χαρακτηριστικά. Το πρόβλημα είναι δυαδικής ταξινόμησης, όπου το target variable ειναι: `Dropout` (0 = No Dropout, 1 = Dropout).
 
-Predicting student dropout is a valuable task for universities, as it allows early identification of at-risk students and enables timely interventions to improve retention rates.
+Η πρόβλεψη του student dropout έχει μεγάλη σημασία για τα πανεπιστήμια, προσφέροντας τη δυνατότητα έγκαιρης παρέμβασης και υποστήριξης των φοιτητών, ενισχύοντας τα ποσοστά επιτυχούς ολοκλήρωσης των σπουδών.
 
 ---
 
@@ -72,7 +80,19 @@ Predicting student dropout is a valuable task for universities, as it allows ear
 
 ---
 
-## 6. Model Comparison
+## 6. Ερμηνεία Μοντέλων (Feature Importance)
+
+Πραγματοποιήθηκε επιθεώρηση της σημασίας των χαρακτηριστικών (inspect feature importances) για τα κλασικά μοντέλα, ώστε να κατανοήσουμε ποιες μεταβλητές επηρεάζουν περισσότερο την πρόβλεψη του dropout.
+
+Κυρίαρχοι Παράγοντες: Το **Attendance_Rate** (Ποσοστό Παρουσιών) και το **GPA** αναδείχθηκαν ως τα πιο κρίσιμα χαρακτηριστικά. Αυτό επιβεβαιώνει τη λογική ότι η ακαδημαϊκή ασυνέπεια και η χαμηλή βαθμολογία είναι τα βασικά στοιχεία που αναδεικνύουν κίνδυνο dropout.
+
+Επίδραση του Feature Engineering: Το χαρακτηριστικό **study_attendance_ratio** που δημιουργήσαμε ανήκει στην πρώτη 5άδα σημασίας. Αυτό δικαιολογεί την απόφασή να συνδυάσουμε τις ώρες μελέτης με τις παρουσίες, προσφέροντας στο μοντέλο μια πιο σύνθετη πληροφορία.
+
+Τα αποτελέσματα είναι **κοινά και στα δύο μοντέλα** (Random Forest & XGBoost), γεγονός που αυξάνει την εμπιστοσύνη μας στην αξιοπιστία των προβλέψεων.
+
+---
+
+## 7. Σύγκριση Μοντέλων
 
 Εκπαιδεύτηκαν συνολικά 3 μοντέλα: Random Forest, XGBoost, Neural Network. Από τα κλασσικά μοντέλα καλύτερο κρίθηκε το Random Forest και με τα δύο metrics που επιλέξαμε στο Validation set: ROC-AUC(0.8059 vs 0.7986), F1-score (0.5731 vs 0.5674).
 
@@ -94,7 +114,7 @@ Predicting student dropout is a valuable task for universities, as it allows ear
 
 ---
 
-## 7. Καλύτερο Μοντέλο
+## 8. Καλύτερο Μοντέλο
 
 **Καλύτερο μοντέλο: Random Forest** (αποθηκευμένο ως `models/best_model.pkl`)
 
@@ -102,7 +122,7 @@ Predicting student dropout is a valuable task for universities, as it allows ear
 
 ---
 
-## 8. Άλλες παρατηρήσεις
+## 9. Άλλες παρατηρήσεις
 
 - Το **tune.py** αφορά την εύρεση βέλτιστων υπερπαραμέτρων του καλύτερου μοντέλου. Μπήκε ως **τελευταίο βήμα του pipeline**, και όχι στο στάδιο της εκπαίδευσης (Task 3), ώστε να υπάρχει δίκαιη σύγκριση μεταξύ των μοντέλων, χωρίς όμως να παραλείπεται η αποθήκευση του βελτιωμένου μοντέλου.
 
@@ -110,7 +130,7 @@ Predicting student dropout is a valuable task for universities, as it allows ear
 
 ---
 
-## 9. Εγκατάσταση & Εκτέλεση
+## 10. Εγκατάσταση & Εκτέλεση
 
 ```bash
 # 1. Clone του repository

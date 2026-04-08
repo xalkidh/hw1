@@ -41,7 +41,7 @@ def train_neural(X_train, y_train, X_val, y_val, epochs=100, patience=10):
     results = {}
 
     for activation in ["relu", "leaky_relu", "tanh"]:
-        print(f"\n--- Activation: {activation} ---")
+        print(f"\nActivation: {activation}")
 
         # Μετατροπή σε tensors
         X_train_t = torch.FloatTensor(X_train)

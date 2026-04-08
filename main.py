@@ -13,7 +13,7 @@ def main():
 
     # Task 2 - Preprocessing
     print("\nTask 2: Preprocessing")
-    X_train, X_val, X_test, y_train, y_val, y_test = preprocess()
+    X_train, X_val, X_test, y_train, y_val, y_test, feature_names = preprocess()
 
     # Task 2.7 - PCA
     print("\nPCA Analysis")
@@ -21,7 +21,7 @@ def main():
 
     # Task 3.1 - Classical Models
     print("\nTask 3.1: Classical Models")
-    rf, xgb, results = train_classical(X_train, y_train, X_val, y_val)
+    rf, xgb, results = train_classical(X_train, y_train, X_val, y_val, feature_names)
 
     # Task 3.2 - Neural Network
     print("\nTask 3.2: Neural Network")

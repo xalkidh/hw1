@@ -94,6 +94,7 @@ def encode_categoricals(X_train, X_val, X_test, cat_features):
 
     return X_train, X_val, X_test
 
+
 def scale_features(X_train, X_val, X_test):
     scaler = StandardScaler()
     X_train_scaled = scaler.fit_transform(X_train)
@@ -118,9 +119,10 @@ def preprocess(path="data/dataset.csv"):
     X_train, X_val, X_test = handle_missing_values(X_train, X_val, X_test, num_features, cat_features)
     X_train, X_val, X_test, bounds = handle_outliers(X_train, X_val, X_test, num_features)
     X_train, X_val, X_test = encode_categoricals(X_train, X_val, X_test, cat_features)
+    feature_names = X_train.columns.tolist()
     X_train_scaled, X_val_scaled, X_test_scaled, scaler = scale_features(X_train, X_val, X_test)
 
     print(f"Train: {X_train_scaled.shape}, Val: {X_val_scaled.shape}, Test: {X_test_scaled.shape}")
     print(f"Target distribution - Train: {y_train.mean():.2%} dropout")
 
-    return X_train_scaled, X_val_scaled, X_test_scaled, y_train, y_val, y_test
+    return X_train_scaled, X_val_scaled, X_test_scaled, y_train, y_val, y_test, feature_names
