@@ -1,0 +1,25 @@
+# Virtual Environments
+.venv/
+env/
+venv/
+
+# IDEs (PyCharm & VS Code)
+.idea/
+.vscode/
+
+# Python & Cache (Καλύπτει και το src/__pycache__)
+**/__pycache__/
+*.py[cod]
+*$py.class
+*.pyd
+*.pyo
+
+# OS Specific Files (Windows & Mac)
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+desktop.ini
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
